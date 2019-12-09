@@ -1,0 +1,29 @@
+@import '../../../styles/utils.scss';
+
+.book-card {
+	width: 100%;
+	padding: 10px 20px;
+	margin: 10px 0;
+	display: grid;
+	grid-template-columns: 4fr 3fr .5fr;
+	align-items: center;
+	background-color: $secondary-color;
+	box-sizing: border-box;
+	box-shadow: 0 3px 5px 3px rgba(80, 79, 79, 0.294);
+
+	&__name, &__author {
+		.title {
+			font-size: 26px;
+			color: $primary-color;
+		}
+
+		.description {
+			font-size: 20px;
+			color: $lighter-color;
+		}
+	}
+
+	.link {
+		cursor: pointer;
+	}
+}

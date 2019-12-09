@@ -1,0 +1,48 @@
+@import '../../../styles/utils.scss';
+
+.book-form {
+	width: 100%;
+	margin: 20px 0 10px 0;
+	padding-bottom: 20px;
+	border-bottom: 1px solid black;
+
+	.form {
+		padding: 20px 0px;
+		display: grid;
+		grid-template-columns: 4fr 3fr .5fr;
+
+		&__input {
+			padding: 10px 5px;
+			margin-right: 20px;
+			font-size: 18px;
+			color: $lighter-color;
+			outline: none;
+
+			&:focus {
+				border-color: $primary-color;
+			}
+		}
+
+		&__button {
+			@extend %button-reset;
+			padding: 5px 7px;
+			border-radius: 4px;
+			background-color: $primary-color;
+			color: $secondary-color;
+
+			&:hover {
+				background-color: $secondary-color;
+				color: $primary-color;
+			}
+
+			&._disabled {
+				background-color: $secondary-color;
+				color: $primary-color;
+				border: .5px solid rgb(221, 162, 162);
+				cursor: not-allowed;
+			}
+		}
+	}
+
+
+}

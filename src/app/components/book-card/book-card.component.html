@@ -1,0 +1,20 @@
+<div class="book-card">
+	<div class="book-card__name">
+		<div class="title">Название</div>
+		<div class="description">
+			{{book.name}}
+		</div>
+
+	</div>
+	<div class="book-card__author">
+		<div class="title">Автор</div>
+		<div class="description">
+				{{book.author}}
+		</div>
+	</div>
+
+	<div class="book-card__delete">
+		<a (click)="onDelete()"
+			class="link"> Удалить </a>
+	</div>
+</div>
