@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Book } from './interfaces/book.interface';
 
+const BOOKS: string = 'books';
+
 @Component({
   	selector: 'app-root',
   	templateUrl: './app.component.html',
@@ -18,7 +20,7 @@ export class AppComponent {
 
 	addBook(book: Book): void {
 		this.books.unshift(book);
-		localStorage.setItem('books', JSON.stringify(this.books));
+		localStorage.setItem(BOOKS, JSON.stringify(this.books));
 	}
 
 	onFilterChange(value: string): void {
@@ -27,6 +29,6 @@ export class AppComponent {
 
 	deleteBook(id: number): void {
 		this.books.splice(id, 1);
-		localStorage.setItem('books', JSON.stringify(this.books));
+		localStorage.setItem(BOOKS, JSON.stringify(this.books));
 	}
 }
