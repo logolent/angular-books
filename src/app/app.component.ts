@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Book } from './interfaces/book.interface';
 
 @Component({
   	selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-	books: {name: string, author: string}[];
+	books: Book[];
 
 	filter: string = '';
 
@@ -15,7 +16,7 @@ export class AppComponent {
 		this.books = JSON.parse(localStorage.getItem('books')) || [];
 	}
 
-	addBook(book: {name: string, author: string}): void {
+	addBook(book: Book): void {
 		this.books.unshift(book);
 		localStorage.setItem('books', JSON.stringify(this.books));
 	}

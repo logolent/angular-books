@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Book } from '../../interfaces/book.interface';
 
 @Component({
   	selector: 'app-book-add',
@@ -13,7 +14,7 @@ export class BookAddComponent implements OnInit {
 	author: string;
 
 	@Output()
-	add = new EventEmitter<{name: string, author: string}>();
+	add = new EventEmitter<Book>();
 
   	constructor(private fb: FormBuilder) { }
 

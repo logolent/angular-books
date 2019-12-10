@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Book } from '../../interfaces/book.interface';
 
 @Component({
   	selector: 'app-book-card',
@@ -8,7 +9,7 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
 export class BookCardComponent {
 
 	@Input()
-	book: {name: string, author: string};
+	book: Book;
 
 	@Output()
 	delete = new EventEmitter<void>();
