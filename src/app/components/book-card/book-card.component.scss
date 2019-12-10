@@ -5,7 +5,7 @@
 	padding: 10px 20px;
 	margin: 10px 0;
 	display: grid;
-	grid-template-columns: 4fr 3fr .5fr;
+	grid-template-columns: 4fr 3fr .2fr;
 	align-items: center;
 	background-color: $secondary-color;
 	box-sizing: border-box;
@@ -23,7 +23,9 @@
 		}
 	}
 
-	.link {
-		cursor: pointer;
+	&__delete {
+		& .link {
+			cursor: pointer;
+		}
 	}
 }
