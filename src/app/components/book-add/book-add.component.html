@@ -6,18 +6,17 @@
 		[formGroup]="addBookForm"
 	>
 		<input
-
 			formControlName="formName"
 			class="form__input" type="text" placeholder="Название"
 		>
 		<input
-
 			formControlName="formAuthor"
-			class="form__input" type="text" placeholder="Автор">
-
+			class="form__input" type="text" placeholder="Автор"
+		>
 		<button
 			[disabled]="addBookForm.invalid"
 			[class._disabled]="addBookForm.invalid"
-			class="form__button" type="submit"> Добавить </button>
+			class="form__button" type="submit"> Добавить
+		</button>
 	</form>
 </div>
