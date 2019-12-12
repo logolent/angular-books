@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Book } from './interfaces/book.interface';
+import { Book } from './models/book.interface';
 
 const BOOKS: string = 'books';
 
