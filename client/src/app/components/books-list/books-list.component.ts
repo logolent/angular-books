@@ -26,17 +26,18 @@ export class BooksListComponent implements OnInit, OnDestroy {
 
 	}
 
-	loadBooks(search: string): void {
+	private loadBooks(search: string): void {
 		this.booksService.getBooks().subscribe(books => {
 			this.books = books.filter(
 				book => book.name.includes(search) || book.author.includes(search)
 			);
-
-			console.log(this.books);
 		});
 	}
 
-	deleteBook(id: number): void {
-		/* this.booksService. */
+	deleteBook(id: string): void {
+		this.booksService.deleteBook(id).subscribe(() => {
+			this.loadBooks(this.search);
+		});
+
 	}
 }

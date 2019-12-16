@@ -10,11 +10,13 @@ import { BookAddComponent } from './components/book-add/book-add.component';
 import { BookSearchComponent } from './components/book-search/book-search.component';
 import { BookCardComponent } from './components/book-card/book-card.component';
 import { BooksListComponent } from './components/books-list/books-list.component';
+import { BookViewComponent } from './components/book-view/book-view.component';
 
 import { BookFilterPipe } from './pipes/book-filter.pipe';
 
 const routes: Routes = [
 	{path: 'books/new', component: BookAddComponent},
+	{path: 'books/:id', component: BookViewComponent},
 	{path: 'books', component: BooksListComponent},
 	{path: '**', redirectTo: '/books'}
 ]
@@ -27,8 +29,8 @@ const routes: Routes = [
 	BookSearchComponent,
 	BookCardComponent,
 	BooksListComponent,
+	BookViewComponent,
 	BookFilterPipe,
-
   ],
   imports: [
 	BrowserModule,

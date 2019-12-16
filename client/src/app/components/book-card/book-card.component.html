@@ -1,4 +1,4 @@
-<div class="book-card">
+<div class="book-card" [routerLink]="'/books/' + book.id">
 	<div>
 		<p class="book-card__name">{{book.name}}</p>
 		<p class="book-card__author">{{book.author}}</p>
