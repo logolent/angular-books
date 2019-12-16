@@ -19,13 +19,13 @@ export class BookUpdateComponent implements OnInit, OnDestroy {
 				private route: ActivatedRoute,
 				private router: Router) { }
 
-	ngOnInit():void {
+	ngOnInit(): void {
 		this.subscription = this.route.params.pipe(
 			switchMap(params => this.bookService.getBook(params.id))
 		).subscribe(book => this.book = book);
 	}
 
-	ngOnDestroy():void {
+	ngOnDestroy(): void {
 		this.subscription.unsubscribe();
 	}
 
@@ -34,5 +34,4 @@ export class BookUpdateComponent implements OnInit, OnDestroy {
 			this.router.navigate(['/books']);
 		});
 	}
-
 }

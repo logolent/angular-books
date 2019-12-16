@@ -12,7 +12,7 @@ import { BookCardComponent } from './components/book-card/book-card.component';
 import { BooksListComponent } from './components/books-list/books-list.component';
 import { BookUpdateComponent } from './components/book-update/book-update.component';
 import { BookDetailsViewComponent } from './components/book-details-view/book-details-view.component';
-import { BookNewComponent } from './book-new/book-new.component';
+import { BookNewComponent } from './components/book-new/book-new.component';
 
 import { BookFilterPipe } from './pipes/book-filter.pipe';
 
