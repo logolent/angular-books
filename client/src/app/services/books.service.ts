@@ -19,10 +19,20 @@ export class BooksService {
 	}
 
 	public getBook(id: string): Observable<BookModel> {
-		return this.http.get<any>('http://localhost:3000/api/books/' + id);
+		return this.http.get<any>('http://localhost:3000/api/books/' + id).pipe(
+			map(object => object.data)
+		);
+	}
+
+	public addBook(body: BookModel): Observable<void> {
+		return this.http.post<any>('http://localhost:3000/api/books/add/', body);
 	}
 
 	public deleteBook(id: string): Observable<void> {
 		return this.http.delete<any>('http://localhost:3000/api/books/delete/' + id);
+	}
+
+	public updateBook(id: string, body: object): Observable<void> {
+		return this.http.patch<any>('http://localhost:3000/api/books/edit/' + id, body);
 	}
 }

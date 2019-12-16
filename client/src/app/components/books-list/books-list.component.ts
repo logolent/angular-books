@@ -5,7 +5,7 @@ import { BookModel } from '../../models/book.model';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-books-list',
+  selector: 'books-list',
   templateUrl: './books-list.component.html',
   styleUrls: ['./books-list.component.scss']
 })

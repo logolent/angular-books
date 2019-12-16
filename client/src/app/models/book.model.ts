@@ -1,5 +1,5 @@
 export interface BookModel {
-	id: string
+	id?: string
 	name: string,
 	author: string
 }

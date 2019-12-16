@@ -1,0 +1,13 @@
+@import '../../styles/utils.scss';
+
+.book-new {
+	.title {
+		text-align: left;
+		font-size: 25px;
+		color: $primary-color;
+	}
+
+	.container {
+		@extend %container;
+	}
+}
