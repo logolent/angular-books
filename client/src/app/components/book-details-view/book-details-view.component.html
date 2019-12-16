@@ -1,27 +1,21 @@
 <div class="book-details-view">
-	<div class="container">
-		<div class="book-form">
-			<div class="container">
-				<form
-					class="form"
-					(ngSubmit)="submitHandler()"
-					[formGroup]="updateBookForm"
-				>
-					<input
-						formControlName="formName"
-						class="form__input" type="text" placeholder="Название"
-					>
-					<input
-						formControlName="formAuthor"
-						class="form__input" type="text" placeholder="Автор"
-					>
-					<button
-						[disabled]="updateBookForm.invalid"
-						[class._disabled]="updateBookForm.invalid"
-						class="form__button" type="submit"> {{buttonName}}
-					</button>
-				</form>
-			</div>
-		</div>
-	</div>
+	<form
+		class="form"
+		(ngSubmit)="submitHandler()"
+		[formGroup]="bookForm"
+	>
+		<input
+			formControlName="formName"
+			class="form__input" type="text" placeholder="Название"
+		>
+		<input
+			formControlName="formAuthor"
+			class="form__input" type="text" placeholder="Автор"
+		>
+		<button
+			[disabled]="bookForm.invalid"
+			[class._disabled]="bookForm.invalid"
+			class="form__button" type="submit"> {{buttonName}}
+		</button>
+	</form>
 </div>

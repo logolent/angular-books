@@ -21,15 +21,15 @@ export class BookDetailsViewComponent implements OnInit {
 	@Output()
 	addEvent = new EventEmitter<BookModel>();
 
-	updateBookForm: FormGroup;
-	buttonName = this.update? 'Обновить книгу' : 'Добавить кингу';
+	bookForm: FormGroup;
+	buttonName = 'Добавить книгу';
 
   	constructor(private fb: FormBuilder) {
 
 	}
 
   	ngOnInit(): void {
-		this.updateBookForm = this.fb.group({
+		this.bookForm = this.fb.group({
 			formName: ['', [
 				Validators.required
 			]],
@@ -37,13 +37,26 @@ export class BookDetailsViewComponent implements OnInit {
 				Validators.required
 			]]
 		});
-  	}
+
+		if (this.update) {
+			this.bookForm.get('formName').setValue(this.book.name);
+			this.bookForm.get('formAuthor').setValue(this.book.author);
+			this.buttonName = 'Обновить книгу';
+		}
+	}
+
+	get _name() {
+		return this.bookForm.get('formName');
+	}
+
+	get _author() {
+		return this.bookForm.get('formAuthor');
+	}
 
 	submitHandler(): void {
-		const newBook = this.updateBookForm.value;
+		const newBook = this.bookForm.value;
 
 		if (newBook.formName.trim() && newBook.formAuthor.trim()) {
-			console.log('some in details view')
 			if (this.update) {
 				this.updateEvent.emit({name: newBook.formName, author: newBook.formAuthor});
 			} else {
@@ -51,6 +64,4 @@ export class BookDetailsViewComponent implements OnInit {
 			}
 		}
 	}
-
-
 }

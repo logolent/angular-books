@@ -1,11 +1,16 @@
-@import '../../styles/utils.scss';
+@import '../../../styles/utils.scss';
 
-.book-new {
+.book-update {
 	.title {
 		width: 560px;
 		margin: 0 auto;
 		font-size: 25px;
 		color: $primary-color;
+
+		&__id {
+			font-size: 17px;
+			color: $lighter-color;
+		}
 	}
 
 	.container {

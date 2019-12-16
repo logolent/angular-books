@@ -1,13 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Unsubscribable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookModel } from '../../models/book.model';
 import { BooksService } from '../../services/books.service';
 import { switchMap } from 'rxjs/operators';
 
 @Component({
   	selector: 'book-update',
-  	templateUrl: './book-update.component.html'
+	templateUrl: './book-update.component.html',
+	styleUrls: ['./book-update.component.scss']
 })
 export class BookUpdateComponent implements OnInit, OnDestroy {
 
@@ -15,7 +16,8 @@ export class BookUpdateComponent implements OnInit, OnDestroy {
 	private subscription: Unsubscribable;
 
 	constructor(private bookService: BooksService,
-				private route: ActivatedRoute) { }
+				private route: ActivatedRoute,
+				private router: Router) { }
 
 	ngOnInit():void {
 		this.subscription = this.route.params.pipe(
@@ -25,6 +27,12 @@ export class BookUpdateComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy():void {
 		this.subscription.unsubscribe();
+	}
+
+	updateBook(newBook: BookModel): void {
+		this.bookService.updateBook(this.book.id, newBook).subscribe(() => {
+			this.router.navigate(['/books']);
+		});
 	}
 
 }

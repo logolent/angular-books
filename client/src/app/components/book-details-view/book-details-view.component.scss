@@ -1,11 +1,6 @@
 @import '../../../styles/utils.scss';
 
 .book-details-view {
-
-	.container {
-		@extend %container;
-	}
-
 	.form {
 		display: flex;
 		flex-direction: column;
