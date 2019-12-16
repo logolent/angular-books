@@ -1,5 +1,11 @@
 <div class="app">
-	<div class="container">
+	<header></header>
+
+	<div>
+		<router-outlet></router-outlet>
+	</div>
+
+	<!-- <div class="container">
 		<app-book-add
 			(add)="addBook($event)"
 		></app-book-add>
@@ -17,5 +23,5 @@
 		<div *ngIf="books.length <= 0" class="notfound">
 			<h3>No books found</h3>
 		</div>
-	</div>
+	</div> -->
 </div>

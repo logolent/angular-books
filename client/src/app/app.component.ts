@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Book } from './models/book.interface';
+import { BookModel } from './models/book.model';
 
 const BOOKS: string = 'books';
 
@@ -10,7 +10,7 @@ const BOOKS: string = 'books';
 })
 export class AppComponent {
 
-	books: Book[];
+	books: BookModel[];
 
 	filter: string = '';
 
@@ -18,7 +18,7 @@ export class AppComponent {
 		this.books = JSON.parse(localStorage.getItem('books')) || [];
 	}
 
-	addBook(book: Book): void {
+	addBook(book: BookModel): void {
 		this.books.unshift(book);
 		localStorage.setItem(BOOKS, JSON.stringify(this.books));
 	}

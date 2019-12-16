@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Book } from '../../models/book.interface';
+import { BookModel } from '../../models/book.model';
 
 @Component({
   	selector: 'app-book-add',
@@ -14,7 +14,7 @@ export class BookAddComponent implements OnInit {
 	author: string;
 
 	@Output()
-	add = new EventEmitter<Book>();
+	add = new EventEmitter<BookModel>();
 
   	constructor(private fb: FormBuilder) { }
 
@@ -41,7 +41,7 @@ export class BookAddComponent implements OnInit {
 		const newBook = this.addBookForm.value;
 
 		if (newBook.formName.trim() && newBook.formAuthor.trim()) {
-			this.add.emit({name: newBook.formName, author: newBook.formAuthor});
+			/* this.add.emit({name: newBook.formName, author: newBook.formAuthor}); */
 
 			this._name.setValue('');
 			this._author.setValue('');
