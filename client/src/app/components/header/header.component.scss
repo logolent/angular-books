@@ -13,4 +13,11 @@
 		align-items: center;
 		justify-content: space-between;
 	}
+
+	.links {
+		&__item {
+			display: inline-block;
+			margin-right: 20px;
+		}
+	}
 }

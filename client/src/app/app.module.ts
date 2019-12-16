@@ -14,6 +14,7 @@ import { BooksListComponent } from './components/books-list/books-list.component
 import { BookFilterPipe } from './pipes/book-filter.pipe';
 
 const routes: Routes = [
+	{path: 'books/new', component: BookAddComponent},
 	{path: 'books', component: BooksListComponent},
 	{path: '**', redirectTo: '/books'}
 ]

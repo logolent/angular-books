@@ -1,22 +1,24 @@
 <div class="book-form">
-	<form
-		class="form"
-		(ngSubmit)="submitHandler()"
-		(keyup.enter)="submitHandler()"
-		[formGroup]="addBookForm"
-	>
-		<input
-			formControlName="formName"
-			class="form__input" type="text" placeholder="Название"
+	<div class="container">
+		<form
+			class="form"
+			(ngSubmit)="submitHandler()"
+			(keyup.enter)="submitHandler()"
+			[formGroup]="addBookForm"
 		>
-		<input
-			formControlName="formAuthor"
-			class="form__input" type="text" placeholder="Автор"
-		>
-		<button
-			[disabled]="addBookForm.invalid"
-			[class._disabled]="addBookForm.invalid"
-			class="form__button" type="submit"> Добавить
-		</button>
-	</form>
+			<input
+				formControlName="formName"
+				class="form__input" type="text" placeholder="Название"
+			>
+			<input
+				formControlName="formAuthor"
+				class="form__input" type="text" placeholder="Автор"
+			>
+			<button
+				[disabled]="addBookForm.invalid"
+				[class._disabled]="addBookForm.invalid"
+				class="form__button" type="submit"> Добавить
+			</button>
+		</form>
+	</div>
 </div>
