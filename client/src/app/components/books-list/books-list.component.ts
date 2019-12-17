@@ -38,6 +38,5 @@ export class BooksListComponent implements OnInit, OnDestroy {
 		this.booksService.deleteBook(id).subscribe(() => {
 			this.loadBooks(this.search);
 		});
-
 	}
 }

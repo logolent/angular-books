@@ -27,7 +27,6 @@ const routes: Routes = [
   declarations: [
 	AppComponent,
 	HeaderComponent,
-	//BookAddComponent,
 	BookSearchComponent,
 	BookCardComponent,
 	BooksListComponent,
