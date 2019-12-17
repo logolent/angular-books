@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { BookModel } from './models/book.model';
+/* import { BookModel } from './models/book.model'; */
 
-const BOOKS: string = 'books';
+/* const BOOKS: string = 'books'; */
 
 @Component({
   	selector: 'app-root',
@@ -10,7 +10,7 @@ const BOOKS: string = 'books';
 })
 export class AppComponent {
 
-	books: BookModel[];
+	/* books: BookModel[];
 
 	filter: string = '';
 
@@ -30,5 +30,5 @@ export class AppComponent {
 	deleteBook(id: number): void {
 		this.books.splice(id, 1);
 		localStorage.setItem(BOOKS, JSON.stringify(this.books));
-	}
+	} */
 }

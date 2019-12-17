@@ -49,14 +49,13 @@ const booksRepository = {
         const index = books.findIndex(item => item.id === id);
 
         return new Promise(async (resolve, reject) => {
+            const oldName = books[index].name;
+            const oldAuthor = books[index].author;
             if (index === -1) {
                 reject(new Error(`Book with id ${id} not found`));
-            } else if (isDuplicate(body.name, books)) {
+            } else if (isDuplicate(body.name, books) && !(body.name === oldName)) {
                 reject(new Error(`Book with name ${body.name} already exists`));
             } else {
-                const oldName = books[index].name;
-                const oldAuthor = books[index].author;
-    
                 books[index].name = body.name || oldName;
                 books[index].author = body.author || oldAuthor;
                 await writeFile(FILE_PATH, books);
