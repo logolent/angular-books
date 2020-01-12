@@ -1,7 +1,7 @@
+import { BookModel } from './../models/book.model';
 import { Injectable } from '@angular/core';
-import { BookModel } from '../models/book.model';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
+import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -14,7 +14,10 @@ export class BooksService {
 
 	public getBooks(search: string = ''): Observable<BookModel[]> {
 		return this.http.get<any>('http://localhost:3000/api/books').pipe(
-			map(object => object.data)
+			map(array => array.data.filter((object: BookModel) =>
+				object.name.toLowerCase().includes(search.toLowerCase()) ||
+				object.author.toLowerCase().includes(search.toLowerCase())
+			))
 		);
 	}
 

@@ -1,6 +1,7 @@
 <div class="book-search">
 	<input
-		(input)="onSearchChange($event)"
+		[(ngModel)]="search"
+		(keyup.enter)="onSubmit()"
 		class="book-search__input" type="text" placeholder="Найти..."
 	>
 </div>

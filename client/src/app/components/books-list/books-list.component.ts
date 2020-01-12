@@ -11,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BooksListComponent implements OnInit, OnDestroy {
 
-	private search: string = '';
+	private search: string;
+	private subscription: Unsubscribable;
 	books: BookModel[];
 
 	constructor(private route: ActivatedRoute,
@@ -19,18 +20,19 @@ export class BooksListComponent implements OnInit, OnDestroy {
 	}
 
   	ngOnInit() {
-		this.loadBooks(this.search);
+		this.subscription = this.route.queryParamMap.subscribe(params => {
+			this.search = params.get('search') || '';
+			this.loadBooks(this.search);
+		});
   	}
 
 	ngOnDestroy() {
-
+		this.subscription.unsubscribe();
 	}
 
 	private loadBooks(search: string): void {
-		this.booksService.getBooks().subscribe(books => {
-			this.books = books.filter(
-				book => book.name.includes(search) || book.author.includes(search)
-			);
+		this.booksService.getBooks(search).subscribe(books => {
+			this.books = books
 		});
 	}
 
