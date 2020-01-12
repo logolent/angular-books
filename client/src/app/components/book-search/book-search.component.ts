@@ -9,12 +9,20 @@ import { Router } from '@angular/router';
 export class BookSearchComponent {
 
 	search = '';
+	private timer: any = null;
 
   	constructor(
 		private router: Router
 	) { }
 
-	onSubmit(): void {
+	onKeypressHandler(): void {
+		clearTimeout(this.timer);
+		this.timer = setTimeout(() => {
+			this.submit();
+		}, 1200);
+	}
+
+	private submit(): void {
 		this.search = this.search.trim();
 		if (this.search === '') {
 			this.router.navigate(['/books']);

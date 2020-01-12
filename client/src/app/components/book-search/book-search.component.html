@@ -1,7 +1,7 @@
 <div class="book-search">
 	<input
 		[(ngModel)]="search"
-		(keyup.enter)="onSubmit()"
+		(keydown)="onKeypressHandler()"
 		class="book-search__input" type="text" placeholder="Найти..."
 	>
 </div>
