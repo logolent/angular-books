@@ -1,16 +1,7 @@
 <div class="book-card">
-	<div class="book-card__name">
-		<div class="title">Название</div>
-		<div class="description">
-			{{book.name}}
-		</div>
-	</div>
-
-	<div class="book-card__author">
-		<div class="title">Автор</div>
-		<div class="description">
-				{{book.author}}
-		</div>
+	<div [routerLink]="'/books/' + book.id">
+		<p class="book-card__name">{{book.name}}</p>
+		<p class="book-card__author">{{book.author}}</p>
 	</div>
 
 	<div class="book-card__delete">

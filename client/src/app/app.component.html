@@ -1,21 +1,7 @@
 <div class="app">
-	<div class="container">
-		<app-book-add
-			(add)="addBook($event)"
-		></app-book-add>
+	<header></header>
 
-		<app-book-search
-			(filterChange)="onFilterChange($event)"
-		></app-book-search>
-
-		<app-book-card
-			*ngFor="let item of books | filterBook : filter; let i = index"
-			[book]="item"
-			(delete)="deleteBook(i)"
-		></app-book-card>
-
-		<div *ngIf="books.length <= 0" class="notfound">
-			<h3>No books found</h3>
-		</div>
+	<div>
+		<router-outlet></router-outlet>
 	</div>
 </div>

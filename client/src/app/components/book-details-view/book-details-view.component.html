@@ -1,9 +1,8 @@
-<div class="book-form">
+<div class="book-details-view">
 	<form
 		class="form"
 		(ngSubmit)="submitHandler()"
-		(keyup.enter)="submitHandler()"
-		[formGroup]="addBookForm"
+		[formGroup]="bookForm"
 	>
 		<input
 			formControlName="formName"
@@ -14,9 +13,9 @@
 			class="form__input" type="text" placeholder="Автор"
 		>
 		<button
-			[disabled]="addBookForm.invalid"
-			[class._disabled]="addBookForm.invalid"
-			class="form__button" type="submit"> Добавить
+			[disabled]="bookForm.invalid"
+			[class._disabled]="bookForm.invalid"
+			class="form__button" type="submit"> {{buttonName}}
 		</button>
 	</form>
 </div>

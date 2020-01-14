@@ -1,18 +1,37 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  	selector: 'app-book-search',
+  	selector: 'book-search',
   	templateUrl: './book-search.component.html',
   	styleUrls: ['./book-search.component.scss']
 })
 export class BookSearchComponent {
 
-	@Output()
-	filterChange = new EventEmitter<string>();
+	search = '';
+	private timer: any = null;
 
-  	constructor() { }
+  	constructor(
+		private router: Router
+	) { }
 
-	onSearchChange(event: any): void {
-		this.filterChange.emit(event.target.value.trim());
+	onKeypressHandler(): void {
+		clearTimeout(this.timer);
+		this.timer = setTimeout(() => {
+			this.submit();
+		}, 1200);
+	}
+
+	private submit(): void {
+		this.search = this.search.trim();
+		if (this.search === '') {
+			this.router.navigate(['/books']);
+		} else {
+			this.router.navigate(['/books'], {
+				queryParams: {
+					search: this.search
+				}
+			});
+		}
 	}
 }

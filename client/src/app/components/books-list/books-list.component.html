@@ -1,0 +1,11 @@
+<div class="books-list">
+	<div class="container">
+		<div class="container__books" *ngIf="books">
+			<book-card
+				*ngFor="let item of books"
+				[book]="item"
+				(delete)="deleteBook(item.id)"
+			></book-card>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="book-update">
+	<div class="container">
+		<div class="title" *ngIf="book">
+			<p>Редактирование книги</p> <span class="title__id"> {{book.id}} </span>
+		</div>
+		<book-details-view
+			*ngIf="book"
+			[update]="true"
+			[book]="book"
+			(updateEvent)="updateBook($event)"
+		>
+		</book-details-view>
+	</div>
+</div>
