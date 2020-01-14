@@ -37,7 +37,6 @@ const addBook = async (req, res) => {
             success: false,
             error: e.message
         });
-        //throw e;
     }
 }
 
@@ -64,7 +63,6 @@ const updateBook = async (req, res) => {
             success: false,
             error: e.message
         });
-        //throw e;
     }
 }
 

@@ -23,15 +23,13 @@ const booksRepository = {
             author: body.author
         };
 
-        return new Promise(async (resolve, reject) => {
-            if (!isDuplicate(newBook.name, books)) {
-                books.push(newBook);
-                await writeFile(FILE_PATH, books);
-                resolve(newBook);
-            } else {
-                reject(new Error(`Book with name ${newBook.name} already exists`));
-            }
-        })
+        if (!isDuplicate(newBook.name, books)) {
+            books.push(newBook);
+            await writeFile(FILE_PATH, books);
+            return newBook;
+        } else {
+            throw new Error(`Book with name ${newBook.name} already exists`);
+        }
     },
 
     async delete(id) {
@@ -48,29 +46,30 @@ const booksRepository = {
         const books = await this.getAll();
         const index = books.findIndex(item => item.id === id);
 
-        return new Promise(async (resolve, reject) => {
-            const oldName = books[index].name;
-            const oldAuthor = books[index].author;
-            if (index === -1) {
-                reject(new Error(`Book with id ${id} not found`));
-            } else if (isDuplicate(body.name, books) && !(body.name === oldName)) {
-                reject(new Error(`Book with name ${body.name} already exists`));
-            } else {
-                books[index].name = body.name || oldName;
-                books[index].author = body.author || oldAuthor;
-                await writeFile(FILE_PATH, books);
-    
-                const changes = {
-                    id: id,
-                    oldName,
-                    oldAuthor,
-                    newName: books[index].name,
-                    newAuthor: books[index].author
-                }
-    
-                resolve(changes);
+        if (index === -1) {
+            throw new Error(`Book with id ${id} not found`);
+        } 
+        
+        const oldName = books[index].name;
+        const oldAuthor = books[index].author;
+
+        if (isDuplicate(body.name, books) && !(body.name === oldName)) {
+            throw new Error(`Book with name ${body.name} already exists`);
+        } else {
+            books[index].name = body.name || oldName;
+            books[index].author = body.author || oldAuthor;
+            await writeFile(FILE_PATH, books);
+
+            const changes = {
+                id: id,
+                oldName,
+                oldAuthor,
+                newName: books[index].name,
+                newAuthor: books[index].author
             }
-        })
+
+            return changes;
+        }
     }
 }
 
