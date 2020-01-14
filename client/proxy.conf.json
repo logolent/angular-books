@@ -4,7 +4,7 @@
 	  "secure": false,
 	  "router": {
 		  "localhost:4200": "http://localhost:3000",
-		  "https://angular-books.netlify.com": "https://angular-books-api.herokuapp.com"
+		  "angular-books.netlify.com": "https://angular-books-api.herokuapp.com"
 	  }
 	}
 }
